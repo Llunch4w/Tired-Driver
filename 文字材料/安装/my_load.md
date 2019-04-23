@@ -15,6 +15,17 @@ https://mirrors.aliyun.com/pypi/simple/是国内镜像，
 太慢了，会导致Read time out 超时
 */
 ```
+其中有个小插曲，更新的常规操作是
+1. 删除原版本pip
+2. 安装新版本pip   
+
+但是我删完原版本pip时程序因为什么错误终止了，
+所以都没来得及装上新版本pip，导致此时使用pip命令会显示**没有pip模块**的错误。   
+用命令
+```
+python -m ensurepip
+```
+可重新使pip有效，然后再执行一次上述的更新操作即可
 
 **解决Read time out错误**       
 其实第一个问题就已经给出了答案
