@@ -25,7 +25,10 @@ https://mirrors.aliyun.com/pypi/simple/是国内镜像，
 ```
 python -m ensurepip
 ```
-可重新使pip有效，然后再执行一次上述的更新操作即可
+可重新使pip有效，然后再执行一次上述的更新操作即可       
+还有几个可用的国内镜像源（我未亲测）
+- 豆瓣的："https://pypi.doubanio.com/simple/"
+- 清华的："https://pypi.tuna.tsinghua.edu.cn/simple/"
 
 **解决Read time out错误**       
 其实第一个问题就已经给出了答案
