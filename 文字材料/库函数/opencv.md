@@ -1,5 +1,6 @@
 [toc]
 # 图片操作
+
 ```
 img = cv2.imread("filepath")  //读入路径内图片并返回一个句柄
 cv2.namedWindow('windowName') //给窗口命名为windowName
@@ -15,9 +16,10 @@ new_image = image.copy()  // 复制image图片
 dst = cv2.bitwise_not(image) //按位取反，白变黑，黑变白
 h,w,ch = img.shape // 图像的高，宽，通道数目
 height,width = image.shape[:n] //返回数组下标为0-n的元素(不包括n)
-``` 
+```
 
-# 图像变换        
+# 图像变换
+
 ```
 // 图像偏移：M = np.array([[1, 0, tx], [0, 1, ty]])
 // [放大倍数，倾斜角度，偏移像素]
@@ -158,4 +160,3 @@ def template_demo():
         cv.rectangle(target, tl, br, (0, 0, 255), 2)  # tl为左上角坐标，br为右下角坐标，从而画出矩形
         cv.imshow("match-"+np.str(md), target)
 ```
-

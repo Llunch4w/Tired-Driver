@@ -12,8 +12,6 @@ eye_cascade  = cv2.CascadeClassifier(r'D:\python36\Lib\site-packages\cv2\data\ha
 
 simulate_real_time = "true"
 
-
-
 process_eye = 0
 eyeq_len = 5
 eyeq = [0,]
@@ -76,7 +74,7 @@ def detect_and_draw(img, gray):
             for index, value in enumerate(histn):
                 histn[index] = ((value * 256) / max_val)
 
-            threshold = np.argmax(histn)
+            threshold = np.argmax(histn) # 找到某个深度有最多像素点，相当于找众数
             #print histn
             # normalize histogram ends ---------
 
@@ -89,6 +87,7 @@ def detect_and_draw(img, gray):
 
             total_white = 0
             total_black = 0
+            # 二值化
             for i in range(0, roi_eye_gray2.shape[0]):
                 for j in range(0, roi_eye_gray2.shape[1]):
                     pixel_value = roi_eye_gray2[i, j]

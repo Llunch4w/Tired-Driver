@@ -1,3 +1,5 @@
+[toc]
+# 安装requirements中的库
 readme.txt是基于anaconda的安装过程，由于我已经有了vs code，所以并不想再下一个anaconda，所以直接在vs code的环境里安装了requirements.txt文件中的依赖库，以下是安装过程中遇到的错误和解决办法
 
 **访问超时**        
@@ -45,4 +47,22 @@ pip install -r requirements.txt
 我电脑上改成如下这样就对了
 ```
 face_cascade = cv2.CascadeClassifier(r'D:\python36\Lib\site-packages\cv2\data\haarcascade_frontalface_alt.xml')
+```
+
+# 安装tensorflow
+安装语句
+```
+python -m pip install tensorflow
+```
+
+安装成功后执行**import tensorflow**时出现了这样的错误
+```
+ModuleNotFoundError: No module named 'numpy.core._multiarray_umath' ImportError:
+numpy.core.multiarray failed to import
+```
+
+参考[论坛](https://stackoverflow.com/questions/54665842/when-importing-tensorflow-i-get-the-following-error-no-module-named-numpy-cor)
+发现原来是numpy版本不对，于是解决方案：
+```
+python -m pip install numpy --upgrade
 ```
