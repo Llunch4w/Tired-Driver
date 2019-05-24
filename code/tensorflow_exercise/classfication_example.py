@@ -1,6 +1,5 @@
 import tensorflow as tf
-from tensorflow.example.tutorials.mnist import input_data
-mnist=input_data.read_data_sets("MNIST_data/",one_hot=True)
+from tensorflow.examples.tutorials.mnist import input_data
 
 # number 1 to 10 data
 mnist = input_data.read_data_sets('MNIST_data',one_hot = True)
@@ -32,7 +31,7 @@ ys = tf.placeholder(tf.float32,[None,10])
 prediction = add_layer(xs,784,10,activation_function=tf.nn.softmax)
 
 # the error between prediction and real data
-cross_entropy = tf.reduce_mean(-tf.reducr_sum(ys*tf.log(prediction),
+cross_entropy = tf.reduce_mean(-tf.reduce_sum(ys*tf.log(prediction),
                             reduction_indices=[1])) #loss
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
@@ -41,7 +40,7 @@ sess.run(tf.global_variables_initializer())
 
 for i in range(1000):
     batch_xs,batch_ys = mnist.train.next_batch(100) # 先学习一部分（前100个）
-    sess.run(train_step,feed_dict={xs:batch_xs,ys:batch_xs})
-    if i%50 == 0:
+    sess.run(train_step,feed_dict={xs:batch_xs,ys:batch_ys})
+    if i%20 == 0:
         print(compute_accuracy(mnist.test.images,mnist.test.labels))
 

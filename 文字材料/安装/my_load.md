@@ -66,3 +66,20 @@ numpy.core.multiarray failed to import
 ```
 python -m pip install numpy --upgrade
 ```
+
+
+# 安装数据集
+执行
+```
+mnist = input_data.read_data_sets('MNIST_data',one_hot = True)
+```
+时显示连接时间过长
+
+**原因**        
+默认数据集下载网址为外国网址，下载缓慢
+
+**解决方案**        
+从[这个网址](http://yann.lecun.com/exdb/mnist/)下载4个数据集包，放入项目中的MNIST_data文件夹下
+
+**参考资料**    
+[MNIST数据下载](http://www.tensorfly.cn/tfdoc/tutorials/mnist_download.html)

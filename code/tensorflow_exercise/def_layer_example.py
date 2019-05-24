@@ -20,11 +20,11 @@ def add_layer(inputs,in_size,out_size,n_layer,activation_function=None):
             outputs = Wx_plus_b
         else:
             outputs = activation_function(Wx_plus_b)
-            tf.summary.histogram(layer_name+'/outputs',outputs)
+        tf.summary.histogram(layer_name+'/outputs',outputs)
         return outputs
 
 x_data = np.linspace(-1,1,300)[:,np.newaxis] # -1,1等分成300份，且返回为列向量
-noise = np.random.normal(0,0.05,x_data.shape) # 噪声，参数列表（均值，方差，类型）
+noise = np.random.normal(0,0.05,x_data.shape) # 噪声，参数列表（均值，方差，大小）
 y_data = np.square(x_data)-0.5 + noise
 
 with tf.name_scope('inputs'):
